@@ -1,0 +1,29 @@
+Name: King Bi 
+UCLA Id number:806151692
+
+Example input step 5: giftCount = 5, regiftedCount = 3
+Example output step 5: Enjoy your remaining 2 gifts!  Happy Holidays!
+
+Errors included in compile_error.cpp:
+1. using name std; //Incorrect spelling, should be namespace
+2. if (regiftedCount == 0 //Missing closing parentheses
+3. cout << "Looks like you kept all your gifts! Happy Holidays!" //Missing semicolon 
+4. cout < endl; //Missing an additional less than sign
+
+Compilers error message reported in compile_error.cpp: 
+1.identifier "name" is undefined //line 7
+2.expected a ';'//line 7
+3.identifier "cout" is undefined //line 15
+4.identifier "cin" is undefined //line16
+5.expected a ')' //line 21
+6.expected a statement //line40 
+
+Errors included in logic_error.cpp: 
+1. if (regiftedCount != 0) //This will produce "Looks like you kept all your gifts" when it is not true. 
+2. if (giftCount > 0 && regiftedCount < giftCount) //This will produce "Something looks awry with the numbers" when the numbers are completely fine. 
+
+Example input for logic_error.cpp: giftCount = 5, regiftedCount = 3
+Nonsensical output: Looks like you kept all your gifts!  Happy Holidays! Something looks awry with the numbers...
+
+
+

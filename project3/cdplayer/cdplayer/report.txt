@@ -1,0 +1,258 @@
+Name: King Bi 
+UCLA Id: 806151692
+
+A. Notable obstacles overcame 
+1. newly created functions not working as intended, which leads to inaccurate returns. 
+2. loop logic errors that cause the program to not run as intended. 
+3. incorrect variable placement relative to loops causes the loop to not work as intended. 
+4. incrementing variables at an incorrect time which leads to incorrect returns. 
+5. switch statement not working as intended. 
+
+B. Design of program 
+
+Functions: 
+1.bool isValidCDPlayerString(string cdstring);
+2.bool isOpen(string cdstring);
+3.bool hasCD(string cdstring);
+4.int totalTracksPlayed(string cdstring);
+5.int currentTrack(string cdstring);
+6.int counter(size_t i, string cdstring);
+7.int insert(size_t i, string cdstring);
+8.bool play(size_t i, string cdstring);
+9.bool sequence(size_t i, string cdstring);
+
+1.This function returns true if the parameter is a valid cd player string, returns false otherwise. 
+This function begins with a few necessary declarations, and checks the validlity of the parameter letter by letter, 
+using a switch statement nested within a for loop. It utilizes functions 6-9 which will be described later. 
+
+2.This function returns true if the parameter is a valid cd player string that has the cd player as open by the end 
+of the string, returns false otherwise. 
+This functions calls function 1 and 6 to check conditions and returns the result at the end. 
+
+3.This function returns true if the parameter is a valid cd player string that has a cd in the cd player by the end
+of the string, returns false otherwise. 
+This function calls functions 1 and 7 to check conditions and returns the result at the end. 
+
+4. This function returns -1 if the parameter is not a valid cd player string, otherwise, it returns the total number 
+of song tracks played by the cd player by the end of the string. 
+This functions calls funtion 1 to check conditions and returns the number of tracks at the end. 
+
+5. This functions returns -1 if the parameter is not a valid cd player string, or if the cd has been removed from the
+cd player by the end of the string. Otherwise, it returns the next song track number that will be played. 
+This functions call function 1 to check conditions and returns the number of the next song track. 
+
+//The following functions were newly created functions not included in the assignment specifications. All of them 
+takes in two parameters, one of type size_t and another of type string. They will only be called under the 
+condition the portion of the parameter up to that point of the for loop has been valid. 
+
+6.This function returns 0 if the cd player is currently closed, returns 1 if it is currently open. 
+This function loops through the cd player string from index 1 to index i using a while loop, and counts 
+the numbers of 'O'and numbers of 'C'. It then takes the difference of the two varaibles and adds 1. The
+reason 1 is added is because the loop did not go to the 0 index, however, given the string has been valid, 
+the first letter of the string must be 'O'. Therefore we take the difference and add one. This integer should 
+be 1 when the cd is open and 0 when the cd is closed, and is returned after the while loop ends. 
+Inside the 1st function, this function is used to check for case O and case C, making sure that a cd can only
+be opened when it is currently closed, and closed when it is currenly open. It was also used to check case I, 
+case P, and case R. The cd can only be inserted if it is open, only be played if it is closed, and only be 
+removed when it is open. 
+
+7. This function returns 0 if the cd player has no cd inside, and returns 1 if the cd player has cd inside. 
+This function loops through the cd player string from index 1 to index i using a while loop, and counts the numbers 
+of 'I' and numbers of 'R'. It then takes the difference of the two variables. The difference should be 1 when the cd is 
+inserted, and 0 when the cd has been removed. When the while loops ends, the integer is returned. 
+Inside the 1st function, this function is used to check for case I and case R, making sure that a cd can only 
+be inserted when no cd has been inserted, and removed when a cd has been inserted. 
+
+8. This function returns true if the cd playing is currently playing, and returns false if it is not. 
+This function loops through the cd player string from index 0 to index i using a for loop. It count the numbers
+of 'P' and numbers of 'S' and compares the two numbers. If #Ps > #Ss, then the cd player should be playing, otherwise
+it is not playing. A special case does exist however when multiple 'P' are connected in the string. To prevent the #Ps
+from increasing while the #Ss cannot since 'S' cannot be repeated under the project specifications, the #Ps will only 
+increase under the condition that the cd player is not currently playing. When the for loops ends,the bool is returned. 
+Inside the 1st function, this function is used to check for case P and case S, making sure that a cd can only be stopped 
+when it is currently playing, but can be played as long as the cd is open and has a cd inside. 
+
+9. This functions returns true if the song tracks numbers in the parameter appears in order, and returns false otherwise. 
+This function loops through the cd playing string from index 0 to index i using a for loop. It checks to see if the char 
+at each index is a number from 1 to 9 using values from the ASCII table. If it is, the number is added to a string that is 
+initially empty. When this for loops completes, a nested for loop checks to see if the first number is a 1, if so it checks 
+if the entire string sort from ascending order. If so, the functions returns true. A special case does exist when a new cd 
+is inserted, and the song track number must restart from 1. To solve this, at the beginning of the for loop with the bigger
+scope, an if statment checks to see if the char is the letter 'I'. If it is so, then that means a new cd is inserted and 
+the number string is emptied. Now, the string enters the nested for loop and it goes through the same process again check 
+for beginning with 1 and acending order. When the entire for loops ends, the bool is returned. 
+Inside the 1st function, this function is used to check all the cases from 1-9, making sure that the song track numbers are
+in order under the condition that the cd is already playing. 
+
+C. List of test data
+
+TEST DATA: bool isValidCDPlayerString(string cdstring);
+assert(isValidCDPlayerString("") == false); checks the most basic case that is the empty string. 
+assert(isValidCDPlayerString("abc") == false); checks to see if the default of the switch is working properly 
+assert(isValidCDPlayerString("123") == false); checks to see if the default of the switch is working properly 
+assert(isValidCDPlayerString("CP1") == false); checks to see if the program can return false when the first letter is not 'O'
+assert(isValidCDPlayerString("P1C") == false); checks to see if the program can return false when the first letter is not 'O'
+assert(isValidCDPlayerString("OICC") == false);  checks to see if the program can return false when adjacent same letters occur except 'P'
+assert(isValidCDPlayerString("OICPSS") == false); checks to see if the program can return false when adjacent same letters occur except 'P'
+assert(isValidCDPlayerString("OCCCCCCO") == false); checks to see if the program can return false when adjacent same letters occur except 'P'
+assert(isValidCDPlayerString("OICOO") == false); checks to see if the program can return false when adjacent same letters occur except 'P'
+assert(isValidCDPlayerString("OIICP") == false); checks to see if the program can return false when adjacent same letters occur except 'P'
+assert(isValidCDPlayerString("OICPORR") == false); checks to see if the program can return false when adjacent same letters occur except 'P'
+assert(isValidCDPlayerString("OICPP1234SSOR") == false); checks to see if the program can return false when adjacent same letters occur except 'P'
+assert(isValidCDPlayerString("OS") == false); checks to see if the program can return false when the first letter 'O' is not followed by 'I' or 'C' 
+assert(isValidCDPlayerString("OR") == false); checks to see if the program can return false when the first letter 'O' is not followed by 'I' or 'C' 
+assert(isValidCDPlayerString("O1") == false); checks to see if the program can return false when the first letter 'O' is not followed by 'I' or 'C' 
+assert(isValidCDPlayerString("OO") == false); checks to see if the program can return false when adjacent same letters occur except 'P'
+assert(isValidCDPlayerString("OP") == false); checks to see if the program can return false when P occurs when the CD is open 
+assert(isValidCDPlayerString("OIP") == false); checks to see if the program can return false when P occurs when the CD is open 
+assert(isValidCDPlayerString("OICP123SOCP123S") == false); checks to see if the program can return false when the song tracks are not in correct order 
+assert(isValidCDPlayerString("OIC123") == false); checks to see if the program can return false when the song tracks are not in correct order 
+assert(isValidCDPlayerString("OICPP1234SOR")); checks to see if the program allows multiple 'P's back to back 
+assert(isValidCDPlayerString("OICPP")); checks to see if the program allows multiple 'P's back to back
+assert(isValidCDPlayerString("OICPP12345SOCPP6789")); checks to see if the program allows multiple 'P's back to back
+assert(isValidCDPlayerString("OICPPP123456"));checks to see if the program allows multiple 'P's back to back
+assert(isValidCDPlayerString("OICP123O")); checks to see if the program returns true if the cd string is valid
+assert(isValidCDPlayerString("OICPO")); checks to see if the program returns true if the cd string is valid
+assert(isValidCDPlayerString("OICP123ORICP123")); checks to see if the program returns true if the cd string is valid
+assert(isValidCDPlayerString("OICP123")); checks to see if the program returns true if the cd string is valid
+assert(isValidCDPlayerString("OICP123P456")); checks to see if the program returns true if the cd string is valid
+assert(isValidCDPlayerString("OICP123SO")); checks to see if the program returns true if the cd string is valid
+assert(isValidCDPlayerString("OICP123OS")); checks to see if the program returns true if the cd string is valid
+assert(isValidCDPlayerString("OICPS")); checks to see if the program returns true if the cd string is valid
+assert(isValidCDPlayerString("OC")); checks to see if the program returns true if the cd string is valid
+assert(isValidCDPlayerString("OIRIC")); checks to see if the program returns true if the cd string is valid
+assert(isValidCDPlayerString("OICP123SOCP456S")); checks to see if the program returns true if the cd string is valid
+assert(isValidCDPlayerString("OICP123SP456SORICP123")); checks to see if the program treats a string with newly inserted cd and restarting track numbers as valid 
+
+TEST DATA: bool isOpen(string cdstring);
+assert(isOpen("") == false); checks to see if isValidCDPlayerString is working as intended in isOpen 
+assert(isOpen("I") == false); checks to see if isValidCDPlayerString is working as intended in isOpen 
+assert(isOpen("C") == false); checks to see if isValidCDPlayerString is working as intended in isOpen 
+assert(isOpen("OIO") == false); checks to see if isValidCDPlayerString is working as intended in isOpen 
+assert(isOpen("OCOC") == false); checks to see if isValidCDPlayerString is working as intended in isOpen 
+assert(isOpen("P123S") == false); checks to see if isValidCDPlayerString is working as intended in isOpen 
+assert(isOpen("xyz") == false); checks to see if isValidCDPlayerString is working as intended in isOpen 
+assert(isOpen("OCOICC") == false); checks to see if isValidCDPlayerString is working as intended in isOpen 
+assert(isOpen("OC") == false); checks to see if the program returns false when the cd player is currently closed 
+assert(isOpen("OICPP12345SOCPP6789") == false); checks to see if the program returns false when the cd player is currently closed
+assert(isOpen("OICPPP123456") == false); checks to see if the program returns false when the cd player is currently closed
+assert(isOpen("OICP123P456") == false); checks to see if the program returns false when the cd player is currently closed
+assert(isOpen("OICP123SOCP456S") == false); checks to see if the program returns false when the cd player is currently closed
+assert(isOpen("OICP123SP456SORICP123") == false); checks to see if the program returns false when the cd player is currently closed
+assert(isOpen("OICP123ORICP123") == false); checks to see if the program returns false when the cd player is currently closed
+assert(isOpen("OICP123") == false); checks to see if the program returns false when the cd player is currently closed
+assert(isOpen("OICPS") == false); checks to see if the program returns false when the cd player is currently closed
+assert(isOpen("OC") == false); checks to see if the program returns false when the cd player is currently closed
+assert(isOpen("OIRIC") == false); checks to see if the program returns false when the cd player is currently closed
+assert(isOpen("OICPP") == false); checks to see if the program returns false when the cd player is currently closed
+assert(isOpen("OICP123SOCP456S") == false); checks to see if the program returns false when the cd player is currently closed
+assert(isOpen("O")); checks to see if the program can return true given that the parameter is valid and is cd player is currently open
+assert(isOpen("OI")); checks to see if the program can return true given that the parameter is valid and is cd player is currently open
+assert(isOpen("OCO")); checks to see if the program can return true given that the parameter is valid and is cd player is currently open
+assert(isOpen("OICO")); checks to see if the program can return true given that the parameter is valid and is cd player is currently open
+assert(isOpen("OICP123SO")); checks to see if the program can return true given that the parameter is valid and is cd player is currently open
+assert(isOpen("OICP123OS")); checks to see if the program can return true given that the parameter is valid and is cd player is currently open
+assert(isOpen("OICP123O")); checks to see if the program can return true given that the parameter is valid and is cd player is currently open
+assert(isOpen("OICPP1234SOR")); checks to see if the program can return true given that the parameter is valid and is cd player is currently open
+assert(isOpen("OICP123O")); checks to see if the program can return true given that the parameter is valid and is cd player is currently open
+assert(isOpen("OICPO")); checks to see if the program can return true given that the parameter is valid and is cd player is currently open
+
+TEST DATA: bool hasCD(string cdstring);
+assert(hasCD("") == false); checks to see if isValidCDPlayerString is working as intended in hasCD
+assert(hasCD("OO") == false); checks to see if isValidCDPlayerString is working as intended in hasCD
+assert(hasCD("OIC123") == false); checks to see if isValidCDPlayerString is working as intended in hasCD
+assert(hasCD("OICOO") == false); checks to see if isValidCDPlayerString is working as intended in hasCD
+assert(hasCD("OIICP") == false); checks to see if isValidCDPlayerString is working as intended in hasCD
+assert(hasCD("OICPORR") == false); checks to see if isValidCDPlayerString is working as intended in hasCD
+assert(hasCD("OICC") == false); checks to see if isValidCDPlayerString is working as intended in hasCD
+assert(hasCD("OICPSS") == false); checks to see if isValidCDPlayerString is working as intended in hasCD
+assert(hasCD("OCCCCCCO") == false); checks to see if isValidCDPlayerString is working as intended in hasCD
+assert(hasCD("OICP123SOCP123S") == false); checks to see if isValidCDPlayerString is working as intended in hasCD
+assert(hasCD("OICPP1234SSOR") == false); checks to see if isValidCDPlayerString is working as intended in hasCD
+assert(hasCD("OIR") == false); checks to see if the program returns false when the cd string is valid but has no cd in it 
+assert(hasCD("O") == false); checks to see if the program returns false when the cd string is valid but has no cd in it 
+assert(hasCD("OCO") == false); checks to see if the program returns false when the cd string is valid but has no cd in it 
+assert(hasCD("OC") == false); checks to see if the program returns false when the cd string is valid but has no cd in it 
+assert(hasCD("OC") == false); checks to see if the program returns false when the cd string is valid but has no cd in it 
+assert(hasCD("OICPP1234SOR") == false); checks to see if the program returns false when the cd string is valid but has no cd in it 
+assert(hasCD("OICO")); checks to see if the program returns true when the cd string is valid and has a cd inside 
+assert(hasCD("OICP123SOCP456S")); checks to see if the program returns true when the cd string is valid and has a cd inside 
+assert(hasCD("OICPS")); checks to see if the program returns true when the cd string is valid and has a cd inside 
+assert(hasCD("OIRIC")); checks to see if the program returns true when the cd string is valid and has a cd inside 
+assert(hasCD("OICP123SOCP456S")); checks to see if the program returns true when the cd string is valid and has a cd inside 
+assert(hasCD("OICPP")); checks to see if the program returns true when the cd string is valid and has a cd inside 
+assert(hasCD("OICP123SOCP456S")); checks to see if the program returns true when the cd string is valid and has a cd inside 
+assert(hasCD("OICP123SP456SORICP123")); checks to see if the program returns true when the cd string is valid and has a cd inside 
+assert(hasCD("OICP123O")); checks to see if the program returns true when the cd string is valid and has a cd inside 
+assert(hasCD("OICPO")); checks to see if the program returns true when the cd string is valid and has a cd inside 
+assert(hasCD("OICP123ORICP123")); checks to see if the program returns true when the cd string is valid and has a cd inside 
+assert(hasCD("OICP123")); checks to see if the program returns true when the cd string is valid and has a cd inside 
+assert(hasCD("OI")); checks to see if the program returns true when the cd string is valid and has a cd inside 
+assert(hasCD("OIRI")); checks to see if the program returns true when the cd string is valid and has a cd inside 
+
+TEST DATA: int totalTracksPlayed(string cdstring);
+assert(totalTracksPlayed("") == -1); checks to see if the program returns -1 when the cd string is not valid 
+assert(totalTracksPlayed("abc") == -1); checks to see if the program returns -1 when the cd string is not valid 
+assert(totalTracksPlayed("123") == -1); checks to see if the program returns -1 when the cd string is not valid 
+assert(totalTracksPlayed("CP1") == -1); checks to see if the program returns -1 when the cd string is not valid 
+assert(totalTracksPlayed("P1C") == -1); checks to see if the program returns -1 when the cd string is not valid 
+assert(totalTracksPlayed("OP") == -1); checks to see if the program returns -1 when the cd string is not valid 
+assert(totalTracksPlayed("OO") == -1); checks to see if the program returns -1 when the cd string is not valid  
+assert(totalTracksPlayed("OICPP1234SSOR") == -1); checks to see if the program returns -1 when the cd string is not valid 
+assert(totalTracksPlayed("OICPP12345SOCPP6789") == 9); checks to see if the program returns the correct number of tracks played when the cd string is valid 
+assert(totalTracksPlayed("OICPPP123456") == 6); checks to see if the program returns the correct number of tracks played when the cd string is valid
+assert(totalTracksPlayed("OICP123P456") == 6); checks to see if the program returns the correct number of tracks played when the cd string is valid
+assert(totalTracksPlayed("OICP123SO") == 3); checks to see if the program returns the correct number of tracks played when the cd string is valid
+assert(totalTracksPlayed("OICP123OS") == 3); checks to see if the program returns the correct number of tracks played when the cd string is valid
+assert(totalTracksPlayed("OICPS") == 0); checks to see if the program returns the correct number of tracks played when the cd string is valid
+assert(totalTracksPlayed("OC") == 0); checks to see if the program returns the correct number of tracks played when the cd string is valid
+assert(totalTracksPlayed("OIRIC") == 0); checks to see if the program returns the correct number of tracks played when the cd string is valid
+assert(totalTracksPlayed("OICPP") == 0); checks to see if the program returns the correct number of tracks played when the cd string is valid
+assert(totalTracksPlayed("OICP123SOCP456S") == 6); checks to see if the program returns the correct number of tracks played when the cd string is valid
+assert(totalTracksPlayed("OICP123SP456SORICP123") == 9); checks to see if the program returns the correct number of tracks played when the cd string is valid
+assert(totalTracksPlayed("OICP123O") == 3); checks to see if the program returns the correct number of tracks played when the cd string is valid
+assert(totalTracksPlayed("OICP") == 0); checks to see if the program returns the correct number of tracks played when the cd string is valid
+assert(totalTracksPlayed("OIC") == 0); checks to see if the program returns the correct number of tracks played when the cd string is valid
+assert(totalTracksPlayed("O") == 0); checks to see if the program returns the correct number of tracks played when the cd string is valid
+assert(totalTracksPlayed("OICPP") == 0); checks to see if the program returns the correct number of tracks played when the cd string is valid
+assert(totalTracksPlayed("OICP123SOCP456S") == 6); checks to see if the program returns the correct number of tracks played when the cd string is valid
+assert(totalTracksPlayed("OICP123SP456SORICP123") == 9); checks to see if the program returns the correct number of tracks played when the cd string is valid
+assert(totalTracksPlayed("OICP123O") == 3); checks to see if the program returns the correct number of tracks played when the cd string is valid
+assert(totalTracksPlayed("OICPO") == 0)	 checks to see if the program returns the correct number of tracks played when the cd string is valid
+assert(totalTracksPlayed("OICP123ORICP123") == 6); checks to see if the program returns the correct number of tracks played when the cd string is valid
+assert(totalTracksPlayed("OICP123") == 3); checks to see if the program returns the correct number of tracks played when the cd string is valid
+assert(totalTracksPlayed("OICPP1234SOR") == 4); checks to see if the program returns the correct number of tracks played when the cd string is valid
+
+TEST DATA: int currentTrack(string cdstring);
+assert(currentTrack("") == -1); checks to see if the program returns -1 when the cd string is not valid
+assert(currentTrack("xyz") == -1); checks to see if the program returns -1 when the cd string is not valid
+assert(currentTrack("abc") == -1); checks to see if the program returns -1 when the cd string is not valid
+assert(currentTrack("123") == -1); checks to see if the program returns -1 when the cd string is not valid
+assert(currentTrack("CP1") == -1); checks to see if the program returns -1 when the cd string is not valid
+assert(currentTrack("P1C") == -1); checks to see if the program returns -1 when the cd string is not valid
+assert(currentTrack("OP") == -1); checks to see if the program returns -1 when the cd string is not valid
+assert(currentTrack("OO") == -1); checks to see if the program returns -1 when the cd string is not valid
+assert(currentTrack("O") == -1); checks to see if the program returns -1 when there is no cd in the cd playe given the parameter is valid 
+assert(currentTrack("OIR") == -1); checks to see if the program returns -1 when there is no cd in the cd playe given the parameter is valid 
+assert(currentTrack("OICPP1234SOR") == -1); checks to see if the program returns -1 when there is no cd in the cd playe given the parameter is valid 
+assert(currentTrack("OIRI") == 1); checks to see if the program returns the correct next song track number when the cd string is valid 
+assert(currentTrack("OI") == 1); checks to see if the program returns the correct next song track number when the cd string is valid 
+assert(currentTrack("OIC") == 1); checks to see if the program returns the correct next song track number when the cd string is valid 
+assert(currentTrack("OICP") == 1); checks to see if the program returns the correct next song track number when the cd string is valid 
+assert(currentTrack("OICP123O") == 4); checks to see if the program returns the correct next song track number when the cd string is valid 
+assert(currentTrack("OICPP") == 1); checks to see if the program returns the correct next song track number when the cd string is valid 
+assert(currentTrack("OICP123SOCP456S") == 7); checks to see if the program returns the correct next song track number when the cd string is valid 
+assert(currentTrack("OICP123SP456SORICP123") == 4);	 checks to see if the program returns the correct next song track number when the cd string is valid 
+assert(currentTrack("OICP123O") == 4); checks to see if the program returns the correct next song track number when the cd string is valid 
+assert(currentTrack("OICPO") == 1); checks to see if the program returns the correct next song track number when the cd string is valid 
+assert(currentTrack("OICP123ORICP123") == 4); checks to see if the program returns the correct next song track number when the cd string is valid 
+assert(currentTrack("OICP123") == 4); checks to see if the program returns the correct next song track number when the cd string is valid 
+assert(currentTrack("OICP123ORICP") == 1); checks to see if the program returns the correct next song track number when the cd string is valid 
+assert(currentTrack("OICP123ORICP123") == 4); checks to see if the program returns the correct next song track number when the cd string is valid 
+assert(currentTrack("OICPPP123456") == 7); checks to see if the program returns the correct next song track number when the cd string is valid 
+assert(currentTrack("OICP123P456") == 7); checks to see if the program returns the correct next song track number when the cd string is valid 
+assert(currentTrack("OICP123SO") == 4); checks to see if the program returns the correct next song track number when the cd string is valid 
+assert(currentTrack("OICP123OS") == 4); checks to see if the program returns the correct next song track number when the cd string is valid 
+assert(currentTrack("OICPS") == 1); checks to see if the program returns the correct next song track number when the cd string is valid 
+assert(currentTrack("OC") == -1); checks to see if the program returns the correct next song track number when the cd string is valid 
+assert(currentTrack("OIRIC") == 1); checks to see if the program returns the correct next song track number when the cd string is valid 

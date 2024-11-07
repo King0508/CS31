@@ -1,0 +1,70 @@
+Name:King Bi 
+UCLA ID: 806151692
+
+LIST OF OBSTACLES OVERCAME 
+1.using incorrect #include in each file 
+2.not assigning the user input values to the private members of the class
+3.incorrect spelling in the name of methods
+
+LIST OF TEST DATA
+1.  GiftCard card3("Apple", 200.0);
+    Retailer r1("Apple"); 
+    assert(std::to_string(card3.getAmount()) == "200.000000");
+    assert(card3.getRetailer() == "Apple");
+    assert(card3.isEmpty() == false);
+    assert(card3.canBeUsedToPurchase(200.00) == true);
+    assert(r1.purchaseItem("Air Pods", 99.00, card3) == true);
+    assert(card3.getAmount() == 101.0);
+The above test case tests to see if getAmount(), getRetailer(), isEmpty(), canBeUsedToPurchase(), and purchaseItem() are working as intended
+The above test case has a GiftCard that matches the name of the Retailer 
+
+2.  GiftCard test1("Amazon", 1000);
+    Retailer rtest1("Apple");
+    assert(std::to_string(test1.getAmount()) == "1000.000000");
+    assert(test1.getRetailer() == "Amazon");
+    assert(test1.isEmpty() == false);
+    assert(test1.canBeUsedToPurchase(200.00) == true);
+    assert(rtest1.purchaseItem("Air Pods", 99.00, test1) == false);
+    assert((test1.getAmount() == 101.0) == false);
+The above test case tests to see if getAmount(), getRetailer(), isEmpty(), canBeUsedToPurchase(), and purchaseItem() are working as intended
+The above test case has a GiftCard that does not match the name of the Retailer 
+
+3.  GiftCard test2("target", 100);
+    GiftCard test21("target", 200);
+    Retailer rtest2("target");
+    assert(rtest2.purchaseItem("cake", 99.00, test2) == true);
+    assert(std::to_string(test2.getAmount()) == "1.000000");
+    assert(rtest2.returnItem("Air Pods", 99.00, test2) == true);
+    assert(std::to_string(test2.getAmount()) == "100.000000");
+    assert(rtest2.purchaseItem("Apple Watch", 189.00, test2, test21) == true);
+    assert(card1.isEmpty());
+    assert(std::to_string(test21.getAmount()) == "111.000000");
+The above test case tests two GiftCard object that has matching retailer names with the Retailer object, the test checks that the purchaseItem 
+method and the returnItem method works as intended. 
+
+4.  GiftCard test3("target", 100);
+    GiftCard test31("target", 200);
+    Retailer rtest3("Amazon"); 
+    assert(rtest3.purchaseItem("cake", 99.00, test3) == false);
+    assert(std::to_string(test3.getAmount()) == "100.000000");
+    assert(rtest3.returnItem("Air Pods", 99.00, test3) == false);
+    assert(std::to_string(test3.getAmount()) == "100.000000");
+    assert(rtest3.purchaseItem("Apple Watch", 189.00, test3, test31) == false);
+    assert(test3.isEmpty() == false);
+    assert(std::to_string(test31.getAmount()) == "200.000000");
+The above test case tests two GiftCArd objects that does not have matching retailer names with the Retailer object, the test case checks that the the 
+purchaseItem and returnItem methods returns false
+
+5.  GiftCard test3("target", 100);
+    Retailer rtest2("target");
+    assert(rtest2.purchaseItem("cake", -1.0, test3) == false); 
+    assert(test3.getAmount() == 100);
+The above test case checks if the purchaseItem method with one GiftCard parameter returns false when cost <= 0 
+
+6.  GiftCard test3("target", 100);
+    GiftCard test31("target", 200);
+    Retailer rtest2("target");
+    assert(rtest2.purchaseItem("cake", -1.0, test3, test31) == false);
+    assert(test3.getAmount() == 100);
+    assert(test31.getAmount() == 200);
+This above test checks if the purchaseItem method with two GiftCard parameter returns false when cost <= 0

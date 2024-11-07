@@ -1,0 +1,23 @@
+﻿  compile_error.cpp
+C:\Users\kings\OneDrive\Desktop\Project1\compile_error\compile_error\compile_error.cpp(7,7): error C2065: 'name': undeclared identifier
+C:\Users\kings\OneDrive\Desktop\Project1\compile_error\compile_error\compile_error.cpp(7,7): error C2187: syntax error: 'name' was unexpected here
+C:\Users\kings\OneDrive\Desktop\Project1\compile_error\compile_error\compile_error.cpp(7,15): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\kings\OneDrive\Desktop\Project1\compile_error\compile_error\compile_error.cpp(7,12): error C2365: 'std': redefinition; previous definition was 'namespace'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\string(23,1):
+  see declaration of 'std'
+  
+C:\Users\kings\OneDrive\Desktop\Project1\compile_error\compile_error\compile_error.cpp(15,5): error C2065: 'cout': undeclared identifier
+C:\Users\kings\OneDrive\Desktop\Project1\compile_error\compile_error\compile_error.cpp(16,5): error C2065: 'cin': undeclared identifier
+C:\Users\kings\OneDrive\Desktop\Project1\compile_error\compile_error\compile_error.cpp(17,5): error C2065: 'cout': undeclared identifier
+C:\Users\kings\OneDrive\Desktop\Project1\compile_error\compile_error\compile_error.cpp(18,5): error C2065: 'cin': undeclared identifier
+C:\Users\kings\OneDrive\Desktop\Project1\compile_error\compile_error\compile_error.cpp(22,9): error C2065: 'cout': undeclared identifier
+C:\Users\kings\OneDrive\Desktop\Project1\compile_error\compile_error\compile_error.cpp(23,9): error C2146: syntax error: missing ')' before identifier 'cout'
+C:\Users\kings\OneDrive\Desktop\Project1\compile_error\compile_error\compile_error.cpp(25,5): error C2059: syntax error: 'else'
+C:\Users\kings\OneDrive\Desktop\Project1\compile_error\compile_error\compile_error.cpp(26,5): error C2143: syntax error: missing ';' before '{'
+C:\Users\kings\OneDrive\Desktop\Project1\compile_error\compile_error\compile_error.cpp(26,5): error C2447: '{': missing function header (old-style formal list?)
+C:\Users\kings\OneDrive\Desktop\Project1\compile_error\compile_error\compile_error.cpp(33,5): error C2059: syntax error: 'if'
+C:\Users\kings\OneDrive\Desktop\Project1\compile_error\compile_error\compile_error.cpp(34,5): error C2143: syntax error: missing ';' before '{'
+C:\Users\kings\OneDrive\Desktop\Project1\compile_error\compile_error\compile_error.cpp(34,5): error C2447: '{': missing function header (old-style formal list?)
+C:\Users\kings\OneDrive\Desktop\Project1\compile_error\compile_error\compile_error.cpp(39,5): error C2059: syntax error: 'return'
+C:\Users\kings\OneDrive\Desktop\Project1\compile_error\compile_error\compile_error.cpp(40,1): error C2059: syntax error: '}'
+C:\Users\kings\OneDrive\Desktop\Project1\compile_error\compile_error\compile_error.cpp(40,1): error C2143: syntax error: missing ';' before '}'

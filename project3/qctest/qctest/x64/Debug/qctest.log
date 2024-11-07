@@ -1,0 +1,5 @@
+﻿  qctest.cpp
+C:\Users\kings\OneDrive\Desktop\Project3\qctest\qctest\qctest.cpp(107,34): error C2065: 'y': undeclared identifier
+C:\Users\kings\OneDrive\Desktop\Project3\qctest\qctest\qctest.cpp(115,9): error C2059: syntax error: '}'
+  Source.cpp
+  Generating Code...

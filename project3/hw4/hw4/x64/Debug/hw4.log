@@ -1,0 +1,4 @@
+﻿  hw4.cpp
+C:\Users\kings\OneDrive\Desktop\Project3\hw4\hw4\hw4.cpp(5,18): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\kings\OneDrive\Desktop\Project3\hw4\hw4\hw4.cpp(13,23): warning C4244: 'argument': conversion from 'double' to 'const char', possible loss of data
+  hw4.vcxproj -> C:\Users\kings\OneDrive\Desktop\Project3\hw4\x64\Debug\hw4.exe

@@ -1,0 +1,76 @@
+Name:King Bi 
+UCLA ID:806151692
+
+NOTABLE OBSTACLES: 
+1. failing to utilize the enumerations in the switch 
+2. including the wrong header files in the BeetleGame.cpp file 
+3. putting the logic of BeetleGame inside the Beetle.cpp file 
+
+LIST OF TEST DATA:
+    BeetleGame g;
+    g.humanRoll(1);
+    assert(g.humanPlay() == false);
+    g.humanRoll(6);
+    assert(g.humanPlay());
+    assert(!(g.gameIsOver())); 
+
+    TESTS THAT HUMANROLL WITH AN INPUT WORKS AS A CHEATING ROLL AND THAT THE FIRST ROLL MUST BE A 6.
+    ALSO TESTS THAT THE GAMEISOVER FUNCTION WORKS 
+
+    g.computerRoll(2);
+    assert(g.computerPlay() == false);
+    g.computerRoll(6);
+    assert(g.computerPlay()); 
+    assert(!(g.gameIsOver()));
+
+    TESTS TO SEE IF COMPUTERROLL CAN BE CHEATED BY GIVING AN INPUT, ALSO TESTS THAT THE GAME MUST BEGIN WITH 6
+
+    Beetle d;
+    d.buildBody();
+    assert(d.hasBody());
+    assert(!(d.hasAntenna1()));
+    assert(!(d.hasAntenna2()));
+    assert(!(d.hasEye1()));
+    assert(!(d.hasEye2()));
+    assert(!(d.hasHead()));
+    assert(!(d.hasLeg1()));
+    assert(!(d.hasLeg2()));
+    assert(!(d.hasLeg3()));
+    assert(!(d.hasLeg4()));
+
+    TESTS THAT THE BEETLE INITIALLY DOES NOT HAVE ANY BODY PARTS 
+
+    
+    d.buildHead();
+    assert(d.hasHead());
+
+    TEST THAT THE BUILDHEAD FUNCTION WORKS AS INTENDED 
+
+    d.buildAntenna();
+    assert(!(d.hasAntenna2()));
+    assert(d.hasAntenna1());
+    d.buildAntenna();
+    assert(d.hasAntenna2());
+
+    TEST THAT THE BUILD ANTENNA FUNCTION WORKS AS INTENDED
+
+    d.buildEye(); 
+    assert(!(d.hasEye2()));
+    assert(d.hasEye1());
+    d.buildEye();
+    assert(d.hasEye2());
+
+    TEST THAT THE BUILD EYE FUNCTION WORKS AS INTENDED 
+
+    d.buildLeg();
+    assert(d.hasLeg1());
+    assert(!(d.hasLeg2()));
+    d.buildLeg();
+    assert(d.hasLeg2());
+    d.buildLeg();
+    assert(d.hasLeg3());
+    d.buildLeg();
+    assert(d.hasLeg4());
+
+    TEST THAT THE BUILD EYE FUNCTION WORKS AS INTENDED 
+

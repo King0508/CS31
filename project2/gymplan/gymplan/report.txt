@@ -1,0 +1,818 @@
+Name:King Bi 
+UCLA Id Number: 806151692
+
+Obstacles: 
+1. Misplacement of variables in logic statements due to the sheer number of variables and the similarity of the names. 
+2. Incorrect in calculating gymplan cost due to adding discount to final cost instead of substracting it.
+3. Missing a space as well as the dollar sign in the final cost output statement. 
+
+List of test data: 
+1.This input covers the case with an invalid membership plan. 
+Vladimir Putin
+Adult
+One
+Just One
+No
+No
+2.This input covers the case with an invalid membership type. 
+Basic
+Friday
+Odd
+Just One
+No
+No
+3.This input covers the case with invalid membership days. 
+Basic
+Adult
+June
+Regional
+No
+No
+4.This input covers the case with invalid facilities choice.
+Basic
+Adult
+Even
+national
+No
+No
+5.This input covers the case with invalid autopay.
+Basic
+Adult
+Everyday
+National
+Nothing
+No
+6.This input covers the case with invalid paperless billing.
+Basic
+Adult
+Odd
+Regional
+No
+Nobody
+7.This input covers the case of an executive adult membership on odd days for just one facility with both autopay and paperless billing. 
+Executive
+Adult 
+Odd
+Just One 
+Yes 
+Yes
+8. This input covers the case of an executive child membership on odd days for just one facility with both autopay and paperless billing. 
+Executive
+Child 
+Odd
+Just One 
+Yes 
+Yes
+9. This input covers the case of an executive senior membership on odd days for just one facility with both autopay and paperless billing. 
+Executive
+Senior 
+Odd
+Just One 
+Yes 
+Yes
+10.This input covers the case of an executive adult membership on even days for just one facility with both autopay and paperless billing. 
+Executive
+Adult 
+Even
+Just One 
+Yes 
+Yes
+11.This input covers the case of an executive child membership on even days for just one facility with both autopay and paperless billing. 
+Executive
+Child
+Even
+Just One 
+Yes 
+Yes
+12.This input covers the case of an executive senior membership on even days for just one facility with both autopay and paperless billing.
+Executive
+Senior
+Even
+Just One 
+Yes 
+Yes
+13.This input covers the case of an executive adult membership on everyday for just one facility with both autopay and paperless billing.
+Executive
+Adult 
+Everyday
+Just One 
+Yes 
+Yes
+14.This input covers the case of an executive child membership on everyday for just one facility with both autopay and paperless billing.
+Executive
+Child
+Everyday
+Just One 
+Yes 
+Yes
+15.This input covers the case of an executive senior membership on everyday for just one facility with both autopay and paperless billing.
+Executive
+Senior
+Everyday
+Just One 
+Yes 
+Yes
+16.This input covers the case of an executive adult membership on odd days for just regional facilities with both autopay and paperless billing.
+Executive
+Adult 
+Odd
+Regional 
+Yes 
+Yes
+17.This input covers the case of an executive child membership on odd days for just regional facilities with both autopay and paperless billing.
+Executive
+Child 
+Odd
+Regional 
+Yes 
+Yes
+18.This input covers the case of an executive senior membership on odd days for just regional facilities with both autopay and paperless billing.
+Executive
+Senior
+Odd
+Regional 
+Yes 
+Yes
+19.This input covers the case of an executive adult membership on even days for just regional facilities with both autopay and paperless billing.
+Executive
+Adult 
+Even
+Regional 
+Yes 
+Yes
+20.This input covers the case of an executive child membership on even days for just regional facilities with both autopay and paperless billing.
+Executive
+Child
+Even
+Regional 
+Yes 
+Yes
+21.This input covers the case of an executive senior membership on even days for just regional facilities with both autopay and paperless billing.
+Executive
+Senior
+Even
+Regional 
+Yes 
+Yes
+22.This input covers the case of an executive adult membership on everyday for just regional facilities with both autopay and paperless billing.
+Executive
+Adult 
+Everyday
+Regional 
+Yes 
+Yes
+23.This input covers the case of an executive child membership on everyday for just regional facilities with both autopay and paperless billing.
+Executive
+Child
+Everyday
+Regional 
+Yes 
+Yes
+24.This input covers the case of an executive senior membership on everyday for just regional facilities with both autopay and paperless billing.
+Executive
+Senior
+Everyday
+Regional 
+Yes 
+Yes
+25.This input covers the case of an executive adult membership on odd days for just national facilities with both autopay and paperless billing.
+Executive
+Adult 
+Odd
+National
+Yes 
+Yes
+26.This input covers the case of an executive child membership on odd days for just national facilities with both autopay and paperless billing.
+Executive
+Child
+Odd
+National
+Yes 
+Yes
+27.This input covers the case of an executive senior membership on odd days for just national facilities with both autopay and paperless billing.
+Executive
+Senior
+Odd
+National
+Yes 
+Yes
+28.This input covers the case of an executive adult membership on even days for just national facilities with both autopay and paperless billing.
+Executive
+Adult 
+Even
+National
+Yes 
+Yes
+29.This input covers the case of an executive child membership on even days for just national facilities with both autopay and paperless billing.
+Executive
+Child
+Even
+National
+Yes 
+Yes
+30.This input covers the case of an executive senior membership on even days for just national facilities with both autopay and paperless billing.
+Executive
+Senior
+Even
+National
+Yes 
+Yes
+31.This input covers the case of an executive adult membership everyday for just national facilities with both autopay and paperless billing.
+Executive
+Adult 
+Everyday
+National
+Yes 
+Yes
+32.This input covers the case of an executive child membership everyday for just national facilities with both autopay and paperless billing.
+Executive
+Child
+Everyday
+National
+Yes 
+Yes
+33.This input covers the case of an executive senior membership everyday for just national facilities with both autopay and paperless billing.
+Executive
+Senior
+Everyday
+National
+Yes 
+Yes
+34.This input covers the case of an executive adult membership on odd days for just one facility with autopay but without paperless billing.
+Executive 
+Adult
+Odd 
+Just One 
+Yes 
+No 
+35.This input covers the case of an executive child membership on odd days for just one facility with autopay but without paperless billing. 
+Executive 
+Child
+Odd 
+Just One 
+Yes 
+No 
+36.This input covers the case of an executive senior membership on odd days for just one facility with autopay but without paperless billing.
+Executive 
+Senior
+Odd 
+Just One 
+Yes 
+No 
+37.This input covers the case of an executive adult membership on even days for just one facility with autopay but without paperless billing.
+Executive 
+Adult 
+Even
+Just One 
+Yes 
+No
+38.This input covers the case of an executive child membership on even days for just one facility with autopay but without paperless billing.
+Executive 
+Child
+Even
+Just One 
+Yes 
+No
+39.This input covers the case of an executive senior membership on even days for just one facility with autopay but without paperless billing.
+Executive 
+Senior
+Even
+Just One 
+Yes 
+No
+40.This input covers the case of an executive adult membership on everyday for just one facility with autopay but without paperless billing.
+Executive 
+Adult 
+Everyday 
+Just One 
+Yes 
+No
+41.This input covers the case of an executive child membership on everyday for just one facility with autopay but without paperless billing.
+Executive 
+Child
+Everyday 
+Just One 
+Yes 
+No
+42.This input covers the case of an executive senior membership on everyday for just one facility with autopay but without paperless billing.
+Executive 
+Senior 
+Everyday 
+Just One 
+Yes 
+No
+43.This input covers the case of an executive adult membership on odd days for just regional facilities with autopay but without paperless billing.
+Executive 
+Adult 
+Odd 
+Regional 
+Yes 
+No 
+44.This input covers the case of an executive child membership on odd days for just regional facilities with autopay but without paperless billing.
+Executive 
+Child
+Odd 
+Regional 
+Yes 
+No 
+45.This input covers the case of an executive senior membership on odd days for just regional facilities with autopay but without paperless billing.
+Executive 
+Senior
+Odd 
+Regional 
+Yes 
+No 
+46.This input covers the case of an executive adult membership on even days for just regional facilities with autopay but without paperless billing.
+Executive 
+Adult 
+Even
+Regional 
+Yes 
+No 
+47.This input covers the case of an executive child membership on even days for just regional facilities with autopay but without paperless billing.
+Executive 
+Child
+Even
+Regional 
+Yes 
+No 
+48.This input covers the case of an executive senior membership on even days for just regional facilities with autopay but without paperless billing.
+Executive 
+Senior 
+Even
+Regional 
+Yes 
+No 
+49.This input covers the case of an executive adult membership on everyday for just regional facilities with autopay but without paperless billing.
+Executive 
+Adult 
+Everyday
+Regional 
+Yes 
+No 
+50.This input covers the case of an executive child membership on everyday for just regional facilities with autopay but without paperless billing.
+Executive 
+Child
+Everyday
+Regional 
+Yes 
+No
+51.This input covers the case of an executive senior membership on everyday for just regional facilities with autopay but without paperless billing.
+Executive 
+Senior
+Everyday
+Regional 
+Yes 
+No
+52.This input covers the case of an executive adult membership on odd days for just national facilities with autopay but without paperless billing.
+Executive 
+Adult 
+Odd 
+National
+Yes 
+No
+53.This input covers the case of an executive child membership on odd days for just national facilities with autopay but without paperless billing.
+Executive 
+Child
+Odd 
+National
+Yes 
+No
+54.This input covers the case of an executive senior membership on odd days for just national facilities with autopay but without paperless billing.
+Executive 
+Senior
+Odd 
+National
+Yes 
+No 
+55.This input covers the case of an executive adult membership on even days for just national facilities with autopay but without paperless billing.
+Executive 
+Adult 
+Even
+National
+Yes 
+No 
+56.This input covers the case of an executive child membership on even days for just national facilities with autopay but without paperless billing.
+Executive 
+Child
+Even
+National
+Yes 
+No
+57.This input covers the case of an executive senior membership on even days for just national facilities with autopay but without paperless billing.
+Executive 
+Senior
+Even
+National
+Yes 
+No
+58.This input covers the case of an executive adult membership on everyday for just national facilities with autopay but without paperless billing.
+Executive 
+Adult 
+Everyday
+National
+Yes 
+No 
+59.This input covers the case of an executive child membership on everyday for just national facilities with autopay but without paperless billing.
+Executive 
+Child
+Everyday
+National
+Yes 
+No 
+60.This input covers the case of an executive senior membership on everyday for just national facilities with autopay but without paperless billing.
+Executive 
+Senior
+Everyday
+National
+Yes 
+No 
+61.This input covers the case of an basic adult membership on odd days for just one facility with both autopay and paperless billing. 
+Basic
+Adult 
+Odd
+Just One 
+Yes 
+Yes
+62.This input covers the case of an basic child membership on odd days for just one facility with both autopay and paperless billing. 
+Basic
+Child 
+Odd
+Just One 
+Yes 
+Yes
+63.This input covers the case of an basic senior membership on odd days for just one facility with both autopay and paperless billing. 
+Basic
+Senior 
+Odd
+Just One 
+Yes 
+Yes
+64.This input covers the case of an basic adult membership on even days for just one facility with both autopay and paperless billing. 
+Basic
+Adult 
+Even
+Just One 
+Yes 
+Yes
+65.This input covers the case of an basic child membership on even days for just one facility with both autopay and paperless billing. 
+Basic
+Child
+Even
+Just One 
+Yes 
+Yes
+66.This input covers the case of an basic senior membership on even days for just one facility with both autopay and paperless billing.
+Basic
+Senior
+Even
+Just One 
+Yes 
+Yes
+67.This input covers the case of an basic adult membership on everyday for just one facility with both autopay and paperless billing.
+Basic
+Adult 
+Everyday
+Just One 
+Yes 
+Yes
+68.This input covers the case of an basic child membership on everyday for just one facility with both autopay and paperless billing.
+Basic
+Child
+Everyday
+Just One 
+Yes 
+Yes
+69.This input covers the case of an basic senior membership on everyday for just one facility with both autopay and paperless billing.
+Basic
+Senior
+Everyday
+Just One 
+Yes 
+Yes
+70.This input covers the case of an basic adult membership on odd days for just regional facilities with both autopay and paperless billing.
+Basic
+Adult 
+Odd
+Regional 
+Yes 
+Yes
+71.This input covers the case of an basic child membership on odd days for just regional facilities with both autopay and paperless billing.
+Basic
+Child 
+Odd
+Regional 
+Yes 
+Yes
+72.This input covers the case of an basic senior membership on odd days for just regional facilities with both autopay and paperless billing.
+Basic
+Senior
+Odd
+Regional 
+Yes 
+Yes
+73.This input covers the case of an basic adult membership on even days for just regional facilities with both autopay and paperless billing.
+Basic
+Adult 
+Even
+Regional 
+Yes 
+Yes
+74.This input covers the case of an basic child membership on even days for just regional facilities with both autopay and paperless billing.
+Basic
+Child
+Even
+Regional 
+Yes 
+Yes
+75.This input covers the case of an basic senior membership on even days for just regional facilities with both autopay and paperless billing.
+Basic
+Senior
+Even
+Regional 
+Yes 
+Yes
+76.This input covers the case of an basic adult membership on everyday for just regional facilities with both autopay and paperless billing.
+Basic
+Adult 
+Everyday
+Regional 
+Yes 
+Yes
+77.This input covers the case of an basic child membership on everyday for just regional facilities with both autopay and paperless billing.
+Basic
+Child
+Everyday
+Regional 
+Yes 
+Yes
+78.This input covers the case of an basic senior membership on everyday for just regional facilities with both autopay and paperless billing.
+Basic
+Senior
+Everyday
+Regional 
+Yes 
+Yes
+79.This input covers the case of an basic adult membership on odd days for just national facilities with both autopay and paperless billing.
+Basic
+Adult 
+Odd
+National
+Yes 
+Yes
+80.This input covers the case of an basic child membership on odd days for just national facilities with both autopay and paperless billing.
+Basic
+Child
+Odd
+National
+Yes 
+Yes
+81.This input covers the case of an basic senior membership on odd days for just national facilities with both autopay and paperless billing.
+Basic
+Senior
+Odd
+National
+Yes 
+Yes
+82.This input covers the case of an basic adult membership on even days for just national facilities with both autopay and paperless billing.
+Basic
+Adult 
+Even
+National
+Yes 
+Yes
+83.This input covers the case of an basic child membership on even days for just national facilities with both autopay and paperless billing.
+Basic
+Child
+Even
+National
+Yes 
+Yes
+84.This input covers the case of an basic senior membership on even days for just national facilities with both autopay and paperless billing.
+Basic
+Senior
+Even
+National
+Yes 
+Yes
+85.This input covers the case of an basic adult membership everyday for just national facilities with both autopay and paperless billing.
+Basic
+Adult 
+Everyday
+National
+Yes 
+Yes
+86.This input covers the case of an basic child membership everyday for just national facilities with both autopay and paperless billing.
+Basic
+Child
+Everyday
+National
+Yes 
+Yes
+87.This input covers the case of an basic senior membership everyday for just national facilities with both autopay and paperless billing.
+Basic
+Senior
+Everyday
+National
+Yes 
+Yes
+88.This input covers the case of an basic adult membership on odd days for just one facility with autopay but without paperless billing.
+Basic 
+Adult
+Odd 
+Just One 
+Yes 
+No 
+89.This input covers the case of an basic child membership on odd days for just one facility with autopay but without paperless billing. 
+Basic 
+Child
+Odd 
+Just One 
+Yes 
+No 
+90.This input covers the case of an basic senior membership on odd days for just one facility with autopay but without paperless billing.
+Basic 
+Senior
+Odd 
+Just One 
+Yes 
+No 
+91.This input covers the case of an basic adult membership on even days for just one facility with autopay but without paperless billing.
+Basic 
+Adult 
+Even
+Just One 
+Yes 
+No
+92.This input covers the case of an basic child membership on even days for just one facility with autopay but without paperless billing.
+Basic 
+Child
+Even
+Just One 
+Yes 
+No
+93.This input covers the case of an basic senior membership on even days for just one facility with autopay but without paperless billing.
+Basic 
+Senior
+Even
+Just One 
+Yes 
+No
+94.This input covers the case of an basic adult membership on everyday for just one facility with autopay but without paperless billing.
+Basic 
+Adult 
+Everyday 
+Just One 
+Yes 
+No
+95.This input covers the case of an basic child membership on everyday for just one facility with autopay but without paperless billing.
+Basic 
+Child
+Everyday 
+Just One 
+Yes 
+No
+96.This input covers the case of an basic senior membership on everyday for just one facility with autopay but without paperless billing.
+Basic 
+Senior 
+Everyday 
+Just One 
+Yes 
+No
+97.This input covers the case of an basic adult membership on odd days for just regional facilities with autopay but without paperless billing.
+Basic 
+Adult 
+Odd 
+Regional 
+Yes 
+No 
+98.This input covers the case of an basic child membership on odd days for just regional facilities with autopay but without paperless billing.
+Basic 
+Child
+Odd 
+Regional 
+Yes 
+No 
+99.This input covers the case of an basic senior membership on odd days for just regional facilities with autopay but without paperless billing.
+Basic 
+Senior
+Odd 
+Regional 
+Yes 
+No 
+100.This input covers the case of an basic adult membership on even days for just regional facilities with autopay but without paperless billing.
+Basic 
+Adult 
+Even
+Regional 
+Yes 
+No 
+101.This input covers the case of an basic child membership on even days for just regional facilities with autopay but without paperless billing.
+Basic 
+Child
+Even
+Regional 
+Yes 
+No 
+102.This input covers the case of an basic senior membership on even days for just regional facilities with autopay but without paperless billing.
+Basic 
+Senior 
+Even
+Regional 
+Yes 
+No 
+103.This input covers the case of an basic adult membership on everyday for just regional facilities with autopay but without paperless billing.
+Basic 
+Adult 
+Everyday
+Regional 
+Yes 
+No 
+104.This input covers the case of an basic child membership on everyday for just regional facilities with autopay but without paperless billing.
+Basic 
+Child
+Everyday
+Regional 
+Yes 
+No
+105.This input covers the case of an basic senior membership on everyday for just regional facilities with autopay but without paperless billing.
+Basic 
+Senior
+Everyday
+Regional 
+Yes 
+No
+106.This input covers the case of an basic adult membership on odd days for just national facilities with autopay but without paperless billing.
+Basic 
+Adult 
+Odd 
+National
+Yes 
+No
+107.This input covers the case of an basic child membership on odd days for just national facilities with autopay but without paperless billing.
+Basic 
+Child
+Odd 
+National
+Yes 
+No
+108.This input covers the case of an basic senior membership on odd days for just national facilities with autopay but without paperless billing.
+Basic 
+Senior
+Odd 
+National
+Yes 
+No 
+109.This input covers the case of an basic adult membership on even days for just national facilities with autopay but without paperless billing.
+Basic 
+Adult 
+Even
+National
+Yes 
+No 
+110.This input covers the case of an basic child membership on even days for just national facilities with autopay but without paperless billing.
+Basic 
+Child
+Even
+National
+Yes 
+No
+111.This input covers the case of an basic senior membership on even days for just national facilities with autopay but without paperless billing.
+Basic 
+Senior
+Even
+National
+Yes 
+No
+112.This input covers the case of an basic adult membership on everyday for just national facilities with autopay but without paperless billing.
+Basic 
+Adult 
+Everyday
+National
+Yes 
+No 
+113.This input covers the case of an basic child membership on everyday for just national facilities with autopay but without paperless billing.
+Basic 
+Child
+Everyday
+National
+Yes 
+No 
+114.This input covers the case of an basic senior membership on everyday for just national facilities with autopay but without paperless billing.
+Basic 
+Senior
+Everyday
+National
+Yes 
+No 
+
+
+
+
+
+
+
+
+
+
+
